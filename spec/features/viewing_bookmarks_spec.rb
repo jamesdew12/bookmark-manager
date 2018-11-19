@@ -5,8 +5,8 @@ feature 'Viewing bookmarks' do
   end
 end
 
-feature 'Viewing Bookamrks' do
-  scenario 'a user can see bookamrks' do
+feature 'Viewing Bookmarks' do
+  scenario 'a user can see bookmarks' do
     visit('/bookmarks')
     expect(page).to have_content "http://www.makersacademy.com"
     expect(page).to have_content "http://www.destroyallsoftware.com"
