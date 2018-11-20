@@ -5,3 +5,4 @@ gem "sinatra"
 gem "rspec"
 gem "simplecov"
 gem "simplecov-console"
+gem 'pg'
