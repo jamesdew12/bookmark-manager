@@ -9,6 +9,7 @@ require './lib/bookmark'
 
         expect(bookmarks).to include("http://www.makersacademy.com")
         expect(bookmarks).to include("http://www.google.com")
+        expect(bookmarks).to include("https://www.bbc.co.uk/sport")
 
       end
     end

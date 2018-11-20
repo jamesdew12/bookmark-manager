@@ -3,7 +3,7 @@ require 'sinatra/base'
 require "./lib/bookmark"
 class BookmarkManager < Sinatra::Base
   get '/' do
-    "Bookmark Manager"
+    erb :bookmarks
   end
 
   get '/bookmarks' do
