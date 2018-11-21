@@ -19,4 +19,15 @@ require './lib/bookmark'
         expect(bookmarks).to include('http://www.google.com')
     end
   end
+  describe '.create' do
+    it 'creates a new bookmark and adds it to the database' do
+      Bookmark.create(url: 'test')
+      expect(Bookmark.all).to include ('test')
+    end
+  end
+
+
+
+
+
 end
