@@ -11,14 +11,14 @@ feature 'Viewing bookmarks' do
         connection = PG.connect(dbname: 'bookmark_manager_test')
 
     # Add the test data
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.bbc.co.uk/sport');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com', 'makers');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES('https://www.bbc.co.uk/sport', 'bbc sport');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'google');")
 
     visit('/bookmarks')
 
-    expect(page).to have_content "http://www.makersacademy.com"
-    expect(page).to have_content "https://www.bbc.co.uk/sport"
-    expect(page).to have_content "http://www.google.com"
+    expect(page).to have_content "makers"
+    expect(page).to have_content "bbc sport"
+    expect(page).to have_content "google"
   end
 end

@@ -8,21 +8,21 @@ require './lib/bookmark'
         connection = PG.connect(dbname: 'bookmark_manager_test')
 
 
-        connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
-        connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.bbc.co.uk/sport');")
-        connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+        connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com', 'makers');")
+        connection.exec("INSERT INTO bookmarks (url, title) VALUES('https://www.bbc.co.uk/sport', 'bbc sport');")
+        connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'google');")
 
         bookmarks = Bookmark.all
 
-        expect(bookmarks).to include('http://www.makersacademy.com')
-        expect(bookmarks).to include('https://www.bbc.co.uk/sport')
-        expect(bookmarks).to include('http://www.google.com')
+        expect(bookmarks).to include('makers')
+        expect(bookmarks).to include('bbc sport')
+        expect(bookmarks).to include('google')
     end
   end
   describe '.create' do
     it 'creates a new bookmark and adds it to the database' do
-      Bookmark.create(url: 'test')
-      expect(Bookmark.all).to include ('test')
+      Bookmark.create(url: 'test', title: 'test title')
+      expect(Bookmark.all).to include ('test title')
     end
   end
 
