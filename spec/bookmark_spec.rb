@@ -4,13 +4,19 @@ require './lib/bookmark'
 
   describe Bookmark do
     describe '.all' do
-      it "returns all of the bookmarks" do
+      it 'returns a list of bookmarks' do
+        connection = PG.connect(dbname: 'bookmark_manager_test')
+
+
+        connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
+        connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.bbc.co.uk/sport');")
+        connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+
         bookmarks = Bookmark.all
 
-        expect(bookmarks).to include("http://www.makersacademy.com")
-        expect(bookmarks).to include("http://www.google.com")
-        expect(bookmarks).to include("https://www.bbc.co.uk/sport")
-
-      end
+        expect(bookmarks).to include('http://www.makersacademy.com')
+        expect(bookmarks).to include('https://www.bbc.co.uk/sport')
+        expect(bookmarks).to include('http://www.google.com')
     end
   end
+end
