@@ -14,4 +14,8 @@ class Bookmark
     result.map { |bookmark| bookmark['url'] }
   end
 
+  def create
+
+  end  
+
 end

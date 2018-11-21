@@ -11,14 +11,14 @@ class BookmarkManager < Sinatra::Base
   @bookmarks = Bookmark.all
   erb :'bookmarks/index'
   end
-  get 'bookmarks/new' do
+  get '/bookmarks/new' do
 
   erb :'bookmarks/new'
 
 
   end
   post 'bookmarks/added' do
-    
+    @url = params[:url]
   end
 
 
